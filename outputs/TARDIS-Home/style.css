@@ -1,0 +1,47 @@
+/* Laid out for a 1920x1080 screen: 1rem = 10px there, and everything scales with the width. */
+html { font-size: calc(100vw / 192); }
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #050507; color: #fff; }
+body { font-family: "SamsungOneUI", -apple-system, "SF Pro Display", system-ui, "Helvetica Neue", Arial, sans-serif; }
+
+/* Top shelf: colour wash for the focused app, cross-faded between two layers.
+   Each is a tiny <img> drawn by app.js; the GPU stretches it, so the TV never repaints the full screen. */
+.hero, .hero-layer, .hero-dim { position: fixed; top: 0; right: 0; bottom: 0; left: 0; }
+.hero-layer { width: 100%; height: 100%; opacity: 0; transition: opacity .5s ease; will-change: opacity; }
+.hero-layer.is-visible { opacity: 1; }
+.hero-dim { background: rgba(6,6,8,.74); opacity: 0; transition: opacity .4s ease; will-change: opacity; }
+.is-grid .hero-dim { opacity: 1; }
+
+.clock { position: fixed; top: 5rem; right: 10.6rem; font-size: 3rem; font-weight: 500; letter-spacing: .03em; color: rgba(255,255,255,.88); }
+.title { position: fixed; left: 10.6rem; top: 15rem; max-width: 120rem; margin: 0; font-size: 11.2rem; line-height: .95; font-weight: 800; letter-spacing: -.2rem; text-transform: uppercase; text-shadow: 0 .4rem 3rem rgba(0,0,0,.35); transition: opacity .35s ease; }
+.is-grid .title { opacity: 0; }
+
+/* Dock and grid. Row 0 sits on the frosted platter; the next row peeks in below.
+   Geometry is mirrored in app.js (ROW_TOP, ROW_PITCH). */
+.rail { position: absolute; top: 0; left: 0; width: 100%; transition: transform .45s cubic-bezier(.2,.8,.2,1); will-change: transform; }
+.platter { position: absolute; left: 5.6rem; right: 5.6rem; top: 72rem; height: 26rem; border-radius: 4.4rem; background: rgba(255,255,255,.13); box-shadow: inset 0 .1rem 0 rgba(255,255,255,.16); transition: opacity .35s ease; }
+.is-grid .platter { opacity: 0; }
+.grid { position: absolute; left: 10.6rem; top: 76rem; display: grid; grid-template-columns: repeat(5, 30rem); column-gap: 5.2rem; row-gap: 9.2rem; }
+
+.tile { position: relative; width: 30rem; height: 18rem; transition: transform .25s cubic-bezier(.2,.8,.2,1); will-change: transform; }
+/* Shadow and sheen get their own layers so focusing only changes opacity, never repaints the blur. */
+.tile::before { content: ""; position: absolute; left: 8%; right: 8%; bottom: 0; height: 70%; border-radius: 2rem; box-shadow: 0 2.6rem 5rem rgba(0,0,0,.75); opacity: 0; transition: opacity .25s ease; will-change: opacity; }
+.art { position: relative; width: 100%; height: 100%; border-radius: 1.9rem; overflow: hidden; background: #1c1c1f; }
+.art img { display: block; width: 100%; height: 100%; }
+.art::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(135deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.05) 38%, rgba(255,255,255,0) 60%); opacity: 0; transition: opacity .25s ease; will-change: opacity; }
+.tile.is-focused { transform: scale(1.2); z-index: 2; }
+.tile.is-focused::before, .tile.is-focused .art::after { opacity: 1; }
+.tile.is-pressed { transform: scale(1.12); transition-duration: .1s; }
+.name { position: absolute; left: -4rem; right: -4rem; top: calc(100% + 2.6rem); font-size: 2.2rem; font-weight: 500; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: rgba(255,255,255,.92); opacity: 0; transition: opacity .2s ease; }
+.is-grid .tile.is-focused .name { opacity: 1; }
+
+/* Apps without bundled art (new downloads): their own TV icon, or their name. */
+.art.generic { display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, #3a3a3f 0%, #1d1d21 100%); }
+.art.generic img { width: auto; height: 62%; max-width: 80%; }
+.art.generic.full img { height: 100%; max-width: none; }
+.art.text span { padding: 0 2.4rem; font-size: 3.4rem; font-weight: 700; line-height: 1.1; text-align: center; }
+
+.empty { position: absolute; left: 10.6rem; right: 10.6rem; top: 76rem; height: 18rem; margin: 0; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: rgba(255,255,255,.8); }
+.empty[hidden] { display: none; }
+.toast { position: fixed; left: 50%; top: 4.4rem; padding: 1.2rem 2.8rem; border-radius: 3rem; background: rgba(32,32,36,.94); font-size: 2.4rem; transform: translateX(-50%); opacity: 0; transition: opacity .25s ease; pointer-events: none; }
+.toast.is-visible { opacity: 1; }

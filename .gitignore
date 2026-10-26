@@ -1,0 +1,20 @@
+# Tizen SDK, installers and build output (re-download / rebuild; see HANDOFF.md)
+work/tizen-studio*/
+work/tizen-installer/
+work/tizen-workspace/
+work/*.bin
+work/*.tar.gz
+work/clean-build/
+.buildResult/
+*.wgt
+
+# Signing material: never commit
+*.p12
+*.pri
+*.csr
+*.password
+*.pwd
+profiles.xml
+device-profile.xml
+
+.DS_Store

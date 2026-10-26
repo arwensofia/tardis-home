@@ -1,0 +1,183 @@
+<!doctype html>
+<!-- Source artwork for TARDIS Home tiles. Rendered by build_tiles.py with
+     headless Chrome; each SVG is one 400x240 (5:3) tile, stacked vertically. -->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; padding: 0; background: #000; }
+  svg { display: block; width: 400px; height: 240px; }
+  text { font-family: "SF Pro Display", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- 1. Netflix: red "N" ribbon on black -->
+<svg id="netflix" viewBox="0 0 400 240">
+  <defs>
+    <linearGradient id="nf-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141414"/><stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <!-- stems darken where the ribbon folds away from them -->
+    <linearGradient id="nf-left" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B1060F"/><stop offset=".55" stop-color="#9a0510"/><stop offset="1" stop-color="#6e0208"/>
+    </linearGradient>
+    <linearGradient id="nf-right" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6e0208"/><stop offset=".45" stop-color="#9a0510"/><stop offset="1" stop-color="#B1060F"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#nf-bg)"/>
+  <g transform="translate(159.5 45)">
+    <rect x="0" y="0" width="22.5" height="150" fill="url(#nf-left)"/>
+    <rect x="58.5" y="0" width="22.5" height="150" fill="url(#nf-right)"/>
+    <polygon points="0,0 22.5,0 81,150 58.5,150" fill="#E50914"/>
+  </g>
+</svg>
+
+<!-- 2. YouTube: play button + wordmark on white -->
+<svg id="youtube" viewBox="0 0 400 240">
+  <rect width="400" height="240" fill="#fff"/>
+  <g id="yt-logo">
+    <g transform="scale(2.6)">
+      <path fill="#FF0000" d="M27.9727 3.12324C27.6435 1.89323 26.6768 0.926623 25.4468 0.597366C23.2197 0 14.285 0 14.285 0C14.285 0 5.35042 0 3.12323 0.597366C1.89323 0.926623 0.926623 1.89323 0.597366 3.12324C0 5.35042 0 10 0 10C0 10 0 14.6496 0.597366 16.8768C0.926623 18.1068 1.89323 19.0734 3.12323 19.4026C5.35042 20 14.285 20 14.285 20C14.285 20 23.2197 20 25.4468 19.4026C26.6768 19.0734 27.6435 18.1068 27.9727 16.8768C28.5701 14.6496 28.5701 10 28.5701 10C28.5701 10 28.5677 5.35042 27.9727 3.12324Z"/>
+      <path fill="#fff" d="M11.4253 14.2854L18.8477 10.0004L11.4253 5.71533V14.2854Z"/>
+    </g>
+    <text x="81" y="45" font-size="57" font-weight="700" letter-spacing="-2.2" fill="#212121">YouTube</text>
+  </g>
+</svg>
+
+<!-- 3. Prime Video: wordmark + smile on Prime blue -->
+<svg id="prime" viewBox="0 0 400 240">
+  <defs>
+    <linearGradient id="pv-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#25A6FF"/><stop offset="1" stop-color="#0A5FCC"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#pv-bg)"/>
+  <g id="pv-logo">
+    <text id="pv-prime" x="0" y="0" font-size="60" font-weight="700" letter-spacing="-1.4" fill="#fff">prime</text>
+    <text id="pv-video" x="0" y="0" font-size="60" font-weight="400" letter-spacing="-1" fill="#fff">video</text>
+    <path id="pv-smile" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+    <path id="pv-arrow" fill="#fff"/>
+  </g>
+</svg>
+
+<!-- 4. Apple TV: Apple mark + "tv" on black -->
+<svg id="appletv" viewBox="0 0 400 240">
+  <defs>
+    <linearGradient id="at-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a2a2d"/><stop offset="1" stop-color="#0b0b0c"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#at-bg)"/>
+  <g id="at-logo">
+    <g id="at-apple" transform="scale(3.3)">
+      <path fill="#fff" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+    </g>
+    <text id="at-tv" x="0" y="0" font-size="96" font-weight="500" letter-spacing="-3" fill="#fff">tv</text>
+  </g>
+</svg>
+
+<!-- 5. HBO Max: stacked wordmark on black with a blue glow -->
+<svg id="hbomax" viewBox="0 0 400 240">
+  <defs>
+    <radialGradient id="hb-bg" cx=".5" cy="1.05" r=".9">
+      <stop offset="0" stop-color="#1d3bff" stop-opacity=".55"/>
+      <stop offset=".55" stop-color="#0a0f3a" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="240" fill="#000"/>
+  <rect width="400" height="240" fill="url(#hb-bg)"/>
+  <g id="hb-logo">
+    <text id="hb-hbo" x="200" y="0" text-anchor="middle" font-size="78" font-weight="900" letter-spacing="1" fill="#fff">HBO</text>
+    <circle id="hb-dot" r="7" fill="#fff"/>
+    <text id="hb-max" x="200" y="0" text-anchor="middle" font-size="72" font-weight="800" letter-spacing="-1.5" fill="#fff">max</text>
+  </g>
+</svg>
+
+<!-- 6. Spotify: mark + wordmark on Spotify green -->
+<svg id="spotify" viewBox="0 0 400 240">
+  <rect width="400" height="240" fill="#1ED760"/>
+  <g id="sp-logo">
+    <g transform="scale(3.1)">
+      <path fill="#000" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+    </g>
+    <text x="88" y="52" font-size="58" font-weight="700" letter-spacing="-1.6" fill="#000">Spotify</text>
+  </g>
+</svg>
+
+<!-- 7. Samsung Apps store: white "apps" glyph on blue, like the tvOS App Store tile -->
+<svg id="store" viewBox="0 0 400 240">
+  <defs>
+    <linearGradient id="st-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2FB4FF"/><stop offset="1" stop-color="#1663F2"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#st-bg)"/>
+  <g fill="#fff" transform="translate(152 72)">
+    <rect x="0" y="0" width="42" height="42" rx="12"/>
+    <rect x="54" y="0" width="42" height="42" rx="12"/>
+    <rect x="0" y="54" width="42" height="42" rx="12"/>
+    <rect x="54" y="54" width="42" height="42" rx="12" opacity=".55"/>
+  </g>
+</svg>
+
+<script>
+  // Centre logo groups using real text metrics.
+  function centre(id, cx, cy) {
+    var g = document.getElementById(id);
+    var b = g.getBBox();
+    g.setAttribute('transform', 'translate(' + (cx - b.x - b.width / 2) + ' ' + (cy - b.y - b.height / 2) + ')');
+  }
+
+  // Measure only once fonts are ready, or widths come from a fallback font.
+  document.fonts.ready.then(function () {
+
+  // YouTube: wordmark sits beside the play button, vertically centred on it.
+  centre('yt-logo', 200, 120);
+
+  // Prime Video: "prime video" on one line, smile under "prime".
+  (function () {
+    var prime = document.getElementById('pv-prime');
+    var video = document.getElementById('pv-video');
+    var pw = prime.getComputedTextLength();
+    video.setAttribute('x', pw + 16);
+    var x0 = 4, x1 = pw - 6, y = 22;
+    document.getElementById('pv-smile').setAttribute('d',
+      'M' + x0 + ' ' + y + ' Q' + (x0 + x1) / 2 + ' ' + (y + 22) + ' ' + x1 + ' ' + (y - 2));
+    // arrow head at the right end of the smile
+    var ax = x1, ay = y - 2;
+    document.getElementById('pv-arrow').setAttribute('d',
+      'M' + (ax - 13) + ' ' + (ay - 6) + ' L' + (ax + 5) + ' ' + (ay - 3) + ' L' + (ax - 4) + ' ' + (ay + 12) + ' Z');
+    centre('pv-logo', 200, 116);
+  })();
+
+  // Apple TV: "tv" follows the Apple mark, baselines aligned to its bottom.
+  (function () {
+    var apple = document.getElementById('at-apple').getBBox();
+    var tv = document.getElementById('at-tv');
+    tv.setAttribute('x', (apple.x + apple.width) * 3.3 + 8);
+    tv.setAttribute('y', (apple.y + apple.height) * 3.3 - 3);
+    centre('at-logo', 200, 120);
+  })();
+
+  // HBO Max: two stacked lines, dot in the middle of the "O".
+  (function () {
+    var hbo = document.getElementById('hb-hbo');
+    var max = document.getElementById('hb-max');
+    hbo.setAttribute('y', 0);
+    max.setAttribute('y', 66);
+    var o = hbo.getExtentOfChar(2);
+    var dot = document.getElementById('hb-dot');
+    dot.setAttribute('cx', o.x + o.width / 2);
+    dot.setAttribute('cy', -0.352 * 78); // middle of the cap height, baseline is y=0
+    centre('hb-logo', 200, 118);
+  })();
+
+  // Spotify: wordmark beside the mark.
+  centre('sp-logo', 200, 120);
+  });
+</script>
+</body>
+</html>

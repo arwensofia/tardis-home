@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TARDIS Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hero" aria-hidden="true">
+    <img class="hero-layer is-visible" alt="">
+    <img class="hero-layer" alt="">
+    <div class="hero-dim"></div>
+  </div>
+
+  <time class="clock" id="clock"></time>
+  <h1 class="title" id="title">TARDIS</h1>
+
+  <main class="rail" id="rail">
+    <div class="platter"></div>
+    <div class="grid" id="grid" role="list" aria-label="Apps"></div>
+    <p class="empty" id="empty" hidden>No apps found</p>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
